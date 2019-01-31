@@ -123,4 +123,22 @@ Finally, we can choose the value r = 10 and b = 30, which gives us: <br/>
 Hence, we choose r = 10 and b = 30. <br/>
 
 **Near Duplicates** <br/>
-...
+Using locality sensitive hashing, and r = 10, and b = 30 we found 8974 near-duplicate candidates,
+you can find the actual candidates [here](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/ALL_NEAR_DUPLICATE_CANDIDATES_with_LSH__10_30_300__ALL_LYRICS.tsv). <br/>
+Using locality sensitive hashing with min hashing, and r = 10, and b = 30, we found 1795 approx-
+imated near-duplicates, you can find the actual near-duplicates [here](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/APPROXIMATED_NEAR_DUPLICATES_DETECTION__lsh_plus_min_hashing__10_30_300__ALL_LYRICS.tsv). <br/>
+The number of false positives on the set of near-duplicate candidates that were filtered out after
+getting the approximated near-duplicates is 7179. You can find the actual false positives at [`false_positives.tsv`](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/false_positives.tsv). <br/>
+The code to generate the shingles and min-hashes from the set of documents can be found at [`part2_1.py`](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/part2_1.py). <br/>
+and the code to get the false positives and other statistics can be found at [`part2_1stats.py`](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/part2_1stats.py). <br/>
+
+**Part 2-2** <br/>
+In this section we deal with the last two problems: set-size estimation and unions-size estimation. <br/>
+
+**Set Size Estimation** <br/>
+The problem is the following: given a min-hash sketch of a set **X** and the size of the universe set (we call it **U**), we have to estimate the size of **X**. <br/>
+We know that the Jaccard similarity (JS) between two sets **A** and **B** is given by: <br/>
+
+(6) ![Eq-6](http://latex.codecogs.com/gif.latex?JS%28A%2CB%29%3D%20%5Cfrac%7B%7CA%20%5Ccap%20B%7C%7D%7B%7CA%20%5Ccup%20B%7C%7D)
+<br/>
+Moreover, if ![](http://latex.codecogs.com/gif.latex?A%20%5Csubset%20B) we have that the ![](http://latex.codecogs.com/gif.latex?A%20%5Ccup%20B%20%3D%20A), and ![](http://latex.codecogs.com/gif.latex?A%20%5Ccap%20B%20%3D%20A), so ![](http://latex.codecogs.com/gif.latex?JS%28A%2CB%29%20%3D%20%5Cfrac%7B%7CA%7C%7D%7B%7CB%7C%7D) if ![](http://latex.codecogs.com/gif.latex?A%20%5Csubset%20B). <br/>
