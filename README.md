@@ -10,7 +10,6 @@ This project composed of two parts: Search-Engine Evaluation and Near-Duplicates
 In this part the quality of three different search engines assessed using only the ground truth and their query results.
 
 #### Part 1-1
-<br/>
 Using the available data we calculate the following evaluation metrics: P@K, R-Precision, MRR (Mean Reciprocal Rank) and nDCG (normalized discounted cumulative gain).<br/>
 First we check how many unique documents and how many queries we have on the ground truth.<br/>
 
@@ -46,6 +45,7 @@ In the above table the columns have the following meaning:<br/>
 5. 3_quartile(R-precision_Distribution)
 6. MAX(R-precision_Distribution)
 <br/>
+
 **MRR Table** <br/>
 
 |   |Search Engine|MRR|
@@ -54,6 +54,7 @@ In the above table the columns have the following meaning:<br/>
 |1|SE_2|0.486303|
 |2|SE_3|0.395118|
 <br/>
+
 **nDCG Table** <br/>
 
 |   |Search Engine|Mean(nDCG@1)|Mean(nDCG@3)|Mean(nDCG@5)|Mean(nDCG@10)|
@@ -63,7 +64,6 @@ In the above table the columns have the following meaning:<br/>
 |2|SE_3|0.238739|0.237409|0.259599|0.299687|
 
 #### Part 1-2
-<br/>
 In this part we analyse the quality of the three different search engine modules considering the following constraints:<br/>
 1. The output is only four results for each search query.
 2. These four results are displayed randomly.
@@ -75,7 +75,6 @@ First we check how many unique documents and how many queries we have on the gro
 |198|662|
 <br/>
 Now, let’s consider the same metrics that we calculated on Part 1.1, then we analyse the results based on our constraints.<br/>
-
 
 |   |Search Engine|Mean(P@4)|Mean(nDCG@4)|MRR|Mean(R-precision_Distribution)|
 |---|---|---|---|---|---|
