@@ -142,3 +142,18 @@ We know that the Jaccard similarity (JS) between two sets **A** and **B** is giv
 (6) ![Eq-6](http://latex.codecogs.com/gif.latex?JS%28A%2CB%29%3D%20%5Cfrac%7B%7CA%20%5Ccap%20B%7C%7D%7B%7CA%20%5Ccup%20B%7C%7D)
 <br/>
 Moreover, if ![](http://latex.codecogs.com/gif.latex?A%20%5Csubset%20B) we have that the ![](http://latex.codecogs.com/gif.latex?A%20%5Ccup%20B%20%3D%20A), and ![](http://latex.codecogs.com/gif.latex?A%20%5Ccap%20B%20%3D%20A), so ![](http://latex.codecogs.com/gif.latex?JS%28A%2CB%29%20%3D%20%5Cfrac%7B%7CA%7C%7D%7B%7CB%7C%7D) if ![](http://latex.codecogs.com/gif.latex?A%20%5Csubset%20B). <br/>
+Coming back to our problem, if **X** is a set and **U** is its universe set, the constraint that ![](http://latex.codecogs.com/gif.latex?X%20%5Csubset%20U) holds, <br/>
+hence we can say that ![](http://latex.codecogs.com/gif.latex?JS%28X%2CU%29%20%3D%20%5Cfrac%7B%7CU%7C%7D%7B%7CX%7C%7D).<br/>  Since we want to estimate **|X|** we can say that: <br/>
+(7) ![Eq-7](http://latex.codecogs.com/gif.latex?%7CX%7C%20%3D%20JS%28X%2CU%29%20%5Ctimes%20%7CU%7C)
+<br/>
+For our example **|U|** is given, then if we can calculate (or estimate) the Jaccard Similarity between
+**X** and **U** we can calculate (estimate) **|X|**. <br/>
+
+Another element that is given to us is the min-hash sketch of set **X** (we call it **min_hash(X)**). We know that for two sets, an estimation of the Jaccard similarity is given by the fraction of permutations where the min-hash values agree, so we can use this fact to estimate the Jaccard similarity between **X** and **U**. <br/>
+
+Whilst **min_hash(X)** is give, the **min_hash(U)** is not, but, we can make the following assumption: on the list that represents **min_hash(X)** each position represents a permutation, and the value in position i represents the position of an element of the set **X** according to permutation i(a practical example can be seen [here](http://infolab.stanford.edu/~ullman/mining/2009/similarity1.pdf#page=25)). Since in **U** there will always be an element on every position (because is the universe set) the **min_hash(U)** can be seen as a list where all elements are **0**, because no matter the permutation, **U** will always have an element in the first position of the permuted order. Therefore, is easy to see that the estimated Jaccard similarity between **X** and **U** is the fraction of elements equal to zero in **min_hash(X)**, with that and equation 7 we can estimate **|X|**. <br/>
+
+The implementation with the given dataset can be found at [`part_2_2_a.py`](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/part_2_2_a.py) and the result of running the program at [`part_2_2_a_OUTPUT.csv`](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/part_2_2_a_OUTPUT.csv). <br/>
+
+**Union Size Estimation** <br/>
+...
