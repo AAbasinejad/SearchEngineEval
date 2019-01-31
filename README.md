@@ -105,7 +105,7 @@ To determine the values of 'r' and 'b' we have the following set of equations an
 
 <br/>
 - Contraint 1: Each set of shingles, that represents an original document, must be sketched in
-a Min-Hashing sketch of length 300.
+a Min-Hashing sketch of length 300. <br/>
 - Contraint 2: It is acceptable to have as a near-duplicates candidate a pair of documents with
 Jaccard=0.85, with probability 0.97.
 
@@ -121,3 +121,6 @@ Finally, we can choose the value r = 10 and b = 30, which gives us: <br/>
 
 <br/>
 Hence, we choose r = 10 and b = 30. <br/>
+
+**Near Duplicates** <br/>
+...
