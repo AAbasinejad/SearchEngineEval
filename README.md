@@ -100,8 +100,9 @@ Before running the program we parsed the data and removed documents where the ly
 **value of 'r' and 'b'** <br/>
 To determine the values of 'r' and 'b' we have the following set of equations and constraints:<br/>
 
-(1) ![Eq-1](http://latex.codecogs.com/gif.latex?n%20%3D%20r%20%5Ctimes%20b) <br/>
-(2) ![Eq-2](http://latex.codecogs.com/gif.latex?p%20%3D%201%20-%20%281%20-%20j%5Er%29%5Eb)
+(1) <p align="center">![Eq-1](http://latex.codecogs.com/gif.latex?n%20%3D%20r%20%5Ctimes%20b)</p> <br/>
+  
+(2) <p align="center">![Eq-2](http://latex.codecogs.com/gif.latex?p%20%3D%201%20-%20%281%20-%20j%5Er%29%5Eb)</p>
 
 <br/>
 - Contraint 1: Each set of shingles, that represents an original document, must be sketched in
@@ -111,13 +112,14 @@ Jaccard=0.85, with probability 0.97.
 
 From Contraint 1 and Constraint 2, and equations 1 and 2, we get:<br/>
 
-(3) ![Eq-3](http://latex.codecogs.com/gif.latex?b%20%5Ctimes%20r%20%3D%20300) <br/>
-(4) ![Eq-4](http://latex.codecogs.com/gif.latex?1%20-%20%281%20-%200.85%5Er%29%5Eb%20%5Cge%200.97)
+(3) <p align="center">![Eq-3](http://latex.codecogs.com/gif.latex?b%20%5Ctimes%20r%20%3D%20300)</p> <br/>
+
+(4) <p align="center">![Eq-4](http://latex.codecogs.com/gif.latex?1%20-%20%281%20-%200.85%5Er%29%5Eb%20%5Cge%200.97)</p>
 
 <br/>
 Finally, we can choose the value r = 10 and b = 30, which gives us: <br/>
 
-(5) ![eq-5](http://latex.codecogs.com/gif.latex?1%20-%20%281%20-%200.85%5E%7B10%7D%29%5E%7B30%7D%20%3D%200.9986084)
+(5) <p align="center">![eq-5](http://latex.codecogs.com/gif.latex?1%20-%20%281%20-%200.85%5E%7B10%7D%29%5E%7B30%7D%20%3D%200.9986084)
 
 <br/>
 Hence, we choose r = 10 and b = 30. <br/>
@@ -136,14 +138,19 @@ and the code to get the false positives and other statistics can be found at [`p
 In this section we deal with the last two problems: set-size estimation and unions-size estimation. <br/>
 
 **Set Size Estimation** <br/>
+
 The problem is the following: given a min-hash sketch of a set **X** and the size of the universe set (we call it **U**), we have to estimate the size of **X**. <br/>
+
 We know that the Jaccard similarity (JS) between two sets **A** and **B** is given by: <br/>
 
-(6) ![Eq-6](http://latex.codecogs.com/gif.latex?JS%28A%2CB%29%3D%20%5Cfrac%7B%7CA%20%5Ccap%20B%7C%7D%7B%7CA%20%5Ccup%20B%7C%7D)
+(6) <p align="center">![Eq-6](http://latex.codecogs.com/gif.latex?JS%28A%2CB%29%3D%20%5Cfrac%7B%7CA%20%5Ccap%20B%7C%7D%7B%7CA%20%5Ccup%20B%7C%7D)</p>
+
 <br/>
 Moreover, if ![](http://latex.codecogs.com/gif.latex?A%20%5Csubset%20B) we have that the ![](http://latex.codecogs.com/gif.latex?A%20%5Ccup%20B%20%3D%20A), and ![](http://latex.codecogs.com/gif.latex?A%20%5Ccap%20B%20%3D%20A), so ![](http://latex.codecogs.com/gif.latex?JS%28A%2CB%29%20%3D%20%5Cfrac%7B%7CA%7C%7D%7B%7CB%7C%7D) if ![](http://latex.codecogs.com/gif.latex?A%20%5Csubset%20B). <br/>
 Coming back to our problem, if **X** is a set and **U** is its universe set, the constraint that ![](http://latex.codecogs.com/gif.latex?X%20%5Csubset%20U) holds, <br/>
-hence we can say that ![](http://latex.codecogs.com/gif.latex?JS%28X%2CU%29%20%3D%20%5Cfrac%7B%7CU%7C%7D%7B%7CX%7C%7D).<br/>  Since we want to estimate **|X|** we can say that: <br/>
+hence we have: ![](http://latex.codecogs.com/gif.latex?JS%28X%2CU%29%20%3D%20%5Cfrac%7B%7CU%7C%7D%7B%7CX%7C%7D).<br/>  
+
+And since we want to estimate **|X|** we can say that: <br/>
 
 (7) <p align="center">![Eq-7](http://latex.codecogs.com/gif.latex?%7CX%7C%20%3D%20JS%28X%2CU%29%20%5Ctimes%20%7CU%7C)</P>
 <br/>
