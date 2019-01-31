@@ -98,4 +98,26 @@ In [this section](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/pa
 Before running the program we parsed the data and removed documents where the lyrics were empty, from this, out of 87041 song lyrics, we got a total of 86216 that were considered for near-duplicate detection.<br/>
 
 **value of 'r' and 'b'** <br/>
+To determine the values of 'r' and 'b' we have the following set of equations and constraints:<br/>
 
+(1) ![Eq-1](http://latex.codecogs.com/gif.latex?n%20%3D%20r%20%5Ctimes%20b) <br/>
+(2) ![Eq-2](http://latex.codecogs.com/gif.latex?p%20%3D%201%20-%20%281%20-%20j%5Er%29%5Eb)
+
+<br/>
+- Contraint 1: Each set of shingles, that represents an original document, must be sketched in
+a Min-Hashing sketch of length 300.
+- Contraint 2: It is acceptable to have as a near-duplicates candidate a pair of documents with
+Jaccard=0.85, with probability 0.97.
+
+From Contraint 1 and Constraint 2, and equations 1 and 2, we get:<br/>
+
+(3) ![Eq-3](http://latex.codecogs.com/gif.latex?b%20%5Ctimes%20r%20%3D%20300) <br/>
+(4) ![Eq-4](http://latex.codecogs.com/gif.latex?1%20-%20%281%20-%200.85%5Er%29%5Eb%20%5Cge%200.97)
+
+<br/>
+Finally, we can choose the value r = 10 and b = 30, which gives us: <br/>
+
+(5) ![eq-5](http://latex.codecogs.com/gif.latex?1%20-%20%281%20-%200.85%5E%7B10%7D%29%5E%7B30%7D%20%3D%200.9986084)
+
+<br/>
+Hence, we choose r = 10 and b = 30. <br/>
