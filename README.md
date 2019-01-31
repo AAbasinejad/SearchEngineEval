@@ -10,7 +10,7 @@ This project composed of two parts: Search-Engine Evaluation and Near-Duplicates
 In this part the quality of three different search engines assessed using only the ground truth and their query results.
 
 #### Part 1-1
-In [this part](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/part1_1.py)using the available data we calculate the following evaluation metrics: P@K, R-Precision, MRR (Mean Reciprocal Rank) and nDCG (normalized discounted cumulative gain).<br/>
+In [this part](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/part1_1.py) using the available data we calculate the following evaluation metrics: P@K, R-Precision, MRR (Mean Reciprocal Rank) and nDCG (normalized discounted cumulative gain).<br/>
 First we check how many unique documents and how many queries we have on the ground truth.<br/>
 
 |Number of Queries|Number of Unique Documents|
