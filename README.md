@@ -1,4 +1,4 @@
-# SearchEngineV2.0
+# SearchEngine Analysis
 Search-Engine Evaluation and Near-Duplicates-Detection
 
 ### Introduction
