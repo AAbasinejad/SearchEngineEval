@@ -13,13 +13,14 @@ In this part the quality of three different search engines assessed using only t
 <br/>
 Using the available data we calculate the following evaluation metrics: P@K, R-Precision, MRR (Mean Reciprocal Rank) and nDCG (normalized discounted cumulative gain).<br/>
 First we check how many unique documents and how many queries we have on the ground truth.<br/>
+
 |Number of Queries|Number of Unique Documents|
 |---|---|
 |222|728|
 <br>/
 calculattion of the metrics mentioned aboved for each search engine:<br/>
 
-**P@K**<br/>
+**P@K** <br/>
 
 |   |Search Engine|Mean(P@1)|Mean(P@3)|Mean(P@5)|Mean(P@10)|
 |---|---|---|---|---|---|
@@ -28,7 +29,7 @@ calculattion of the metrics mentioned aboved for each search engine:<br/>
 |2|SE_3|0.238739|0.205706|0.186486|0.143243|
 <br/>
 
-**R-Precision Table**<br/>
+**R-Precision Table** <br/>
 
 |   |Search Engine|1|2|3|4|5|6|
 |---|---|---|---|---|---|---|---|
@@ -44,8 +45,7 @@ In the above table the columns have the following meaning:<br/>
 4. MEDIAN(R-precision_Distribution)
 5. 3_quartile(R-precision_Distribution)
 6. MAX(R-precision_Distribution)
-<br/>
-**MRR Table**<br/>
+**MRR Table** <br/>
 
 |   |Search Engine|MRR|
 |---|---|---|
@@ -53,7 +53,7 @@ In the above table the columns have the following meaning:<br/>
 |1|SE_2|0.486303|
 |2|SE_3|0.395118|
 <br/>
-**nDCG Table**<br/>
+**nDCG Table** <br/>
 
 |   |Search Engine|Mean(nDCG@1)|Mean(nDCG@3)|Mean(nDCG@5)|Mean(nDCG@10)|
 |---|---|---|---|---|---|
@@ -68,6 +68,7 @@ In this part we analyse the quality of the three different search engine modules
 2. These four results are displayed randomly.
 
 First we check how many unique documents and how many queries we have on the ground truth.<br/>
+
 |Number of Queries|Number of Unique Documents|
 |---|---|
 |198|662|
@@ -85,9 +86,9 @@ Now, let’s consider the same metrics that we calculated on Part 1.1, then we a
 ------
 In this part we deal with three data mining problems: (1) near-duplicate detection; (2) the set-estimation problem and (3) the unions-size estimation problem.<br/>
 
-**Part 2-1**<br/>
+**Part 2-1** <br/>
 In this section we find, in an approximated way, all near-duplicate documents in a dataset of lyrics of songs. For this, two documents has been considered as near-duplicates if the Jaccard similarity between their associated set of shingles is ≥ 0.85.<br/>
 Before running the program we parsed the data and removed documents where the lyrics were empty, from this, out of 87041 song lyrics, we got a total of 86216 that were considered for near-duplicate detection.<br/>
 
-**value of 'r' and 'b'**<br/>
+**value of 'r' and 'b'** <br/>
 
