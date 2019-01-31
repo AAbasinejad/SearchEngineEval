@@ -93,7 +93,7 @@ Finally, we are left with the precision at 4 scores. This metric seems suitable 
 ------
 In this part we deal with three data mining problems: (1) near-duplicate detection; (2) the set-estimation problem and (3) the unions-size estimation problem.<br/>
 
-**Part 2-1** <br/>
+#### Part 2-1 <br/>
 In [this section](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/part2_1.py) we find, in an approximated way, all near-duplicate documents in a dataset of lyrics of songs. For this, two documents has been considered as near-duplicates if the Jaccard similarity between their associated set of shingles is ≥ 0.85.<br/>
 Before running the program we parsed the data and removed documents where the lyrics were empty, from this, out of 87041 song lyrics, we got a total of 86216 that were considered for near-duplicate detection.<br/>
 
@@ -132,7 +132,7 @@ getting the approximated near-duplicates is 7179. You can find the actual false 
 The code to generate the shingles and min-hashes from the set of documents can be found at [`part2_1.py`](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/part2_1.py). <br/>
 and the code to get the false positives and other statistics can be found at [`part2_1stats.py`](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/part2_1stats.py). <br/>
 
-**Part 2-2** <br/>
+#### Part 2-2 <br/>
 In this section we deal with the last two problems: set-size estimation and unions-size estimation. <br/>
 
 **Set Size Estimation** <br/>
@@ -144,7 +144,7 @@ We know that the Jaccard similarity (JS) between two sets **A** and **B** is giv
 Moreover, if ![](http://latex.codecogs.com/gif.latex?A%20%5Csubset%20B) we have that the ![](http://latex.codecogs.com/gif.latex?A%20%5Ccup%20B%20%3D%20A), and ![](http://latex.codecogs.com/gif.latex?A%20%5Ccap%20B%20%3D%20A), so ![](http://latex.codecogs.com/gif.latex?JS%28A%2CB%29%20%3D%20%5Cfrac%7B%7CA%7C%7D%7B%7CB%7C%7D) if ![](http://latex.codecogs.com/gif.latex?A%20%5Csubset%20B). <br/>
 Coming back to our problem, if **X** is a set and **U** is its universe set, the constraint that ![](http://latex.codecogs.com/gif.latex?X%20%5Csubset%20U) holds, <br/>
 hence we can say that ![](http://latex.codecogs.com/gif.latex?JS%28X%2CU%29%20%3D%20%5Cfrac%7B%7CU%7C%7D%7B%7CX%7C%7D).<br/>  Since we want to estimate **|X|** we can say that: <br/>
-(7) ![Eq-7](http://latex.codecogs.com/gif.latex?%7CX%7C%20%3D%20JS%28X%2CU%29%20%5Ctimes%20%7CU%7C)
+(7) <center>![Eq-7](http://latex.codecogs.com/gif.latex?%7CX%7C%20%3D%20JS%28X%2CU%29%20%5Ctimes%20%7CU%7C)</center>
 <br/>
 For our example **|U|** is given, then if we can calculate (or estimate) the Jaccard Similarity between
 **X** and **U** we can calculate (estimate) **|X|**. <br/>
