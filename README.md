@@ -144,8 +144,10 @@ We know that the Jaccard similarity (JS) between two sets **A** and **B** is giv
 Moreover, if ![](http://latex.codecogs.com/gif.latex?A%20%5Csubset%20B) we have that the ![](http://latex.codecogs.com/gif.latex?A%20%5Ccup%20B%20%3D%20A), and ![](http://latex.codecogs.com/gif.latex?A%20%5Ccap%20B%20%3D%20A), so ![](http://latex.codecogs.com/gif.latex?JS%28A%2CB%29%20%3D%20%5Cfrac%7B%7CA%7C%7D%7B%7CB%7C%7D) if ![](http://latex.codecogs.com/gif.latex?A%20%5Csubset%20B). <br/>
 Coming back to our problem, if **X** is a set and **U** is its universe set, the constraint that ![](http://latex.codecogs.com/gif.latex?X%20%5Csubset%20U) holds, <br/>
 hence we can say that ![](http://latex.codecogs.com/gif.latex?JS%28X%2CU%29%20%3D%20%5Cfrac%7B%7CU%7C%7D%7B%7CX%7C%7D).<br/>  Since we want to estimate **|X|** we can say that: <br/>
-(7) <center>![Eq-7](http://latex.codecogs.com/gif.latex?%7CX%7C%20%3D%20JS%28X%2CU%29%20%5Ctimes%20%7CU%7C)</center>
+
+(7) <p align="center">![Eq-7](http://latex.codecogs.com/gif.latex?%7CX%7C%20%3D%20JS%28X%2CU%29%20%5Ctimes%20%7CU%7C)</P>
 <br/>
+
 For our example **|U|** is given, then if we can calculate (or estimate) the Jaccard Similarity between
 **X** and **U** we can calculate (estimate) **|X|**. <br/>
 
