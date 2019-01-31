@@ -17,8 +17,8 @@ First we check how many unique documents and how many queries we have on the gro
 |Number of Queries|Number of Unique Documents|
 |---|---|
 |222|728|
-<br>/
-calculattion of the metrics mentioned aboved for each search engine:<br/>
+<br/>
+calculation of the metrics mentioned aboved for each search engine:<br/>
 
 **P@K** <br/>
 
@@ -45,6 +45,7 @@ In the above table the columns have the following meaning:<br/>
 4. MEDIAN(R-precision_Distribution)
 5. 3_quartile(R-precision_Distribution)
 6. MAX(R-precision_Distribution)
+<br/>
 **MRR Table** <br/>
 
 |   |Search Engine|MRR|
@@ -74,6 +75,7 @@ First we check how many unique documents and how many queries we have on the gro
 |198|662|
 <br/>
 Now, let’s consider the same metrics that we calculated on Part 1.1, then we analyse the results based on our constraints.<br/>
+
 
 |   |Search Engine|Mean(P@4)|Mean(nDCG@4)|MRR|Mean(R-precision_Distribution)|
 |---|---|---|---|---|---|
