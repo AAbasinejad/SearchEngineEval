@@ -97,6 +97,7 @@ In [this section](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/pa
 Before running the program we parsed the data and removed documents where the lyrics were empty, from this, out of 87041 song lyrics, we got a total of 86216 that were considered for near-duplicate detection.<br/>
 
 **value of 'r' and 'b'** <br/>
+------
 To determine the values of 'r' and 'b' we have the following set of equations and constraints:<br/>
 
 (1) <p align="center">![Eq-1](http://latex.codecogs.com/gif.latex?n%20%3D%20r%20%5Ctimes%20b)</p> <br/>
@@ -124,6 +125,7 @@ Finally, we can choose the value r = 10 and b = 30, which gives us: <br/>
 Hence, we choose r = 10 and b = 30. <br/>
 
 **Near Duplicates** <br/>
+------
 Using locality sensitive hashing, and r = 10, and b = 30 we found 8974 near-duplicate candidates,
 you can find the actual candidates [here](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/ALL_NEAR_DUPLICATE_CANDIDATES_with_LSH__10_30_300__ALL_LYRICS.tsv). <br/>
 Using locality sensitive hashing with min hashing, and r = 10, and b = 30, we found 1795 approx-
@@ -137,7 +139,7 @@ and the code to get the false positives and other statistics can be found at [`p
 In this section we deal with the last two problems: set-size estimation and unions-size estimation. <br/>
 
 **Set Size Estimation** <br/>
-
+------
 The problem is the following: given a min-hash sketch of a set **X** and the size of the universe set (we call it **U**), we have to estimate the size of **X**. <br/>
 
 We know that the Jaccard similarity (JS) between two sets **A** and **B** is given by: <br/>
@@ -163,6 +165,7 @@ Whilst **min_hash(X)** is given, the **min_hash(U)** is not, but, we can make th
 The implementation with the given dataset can be found at [`part_2_2_a.py`](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/part_2_2_a.py) and the result of running the program at [`part_2_2_a_OUTPUT.csv`](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/part_2_2_a_OUTPUT.csv). <br/>
 
 **Union Size Estimation** <br/>
+------
 In the previous section we showed that given the size of a universe set **U**, and the min-hash sketch of a set **X** we can estimate the size of **X**. Now, we add a new set **Y**, and, given the min-hash sketch of **Y**, the size of the universe set **U** and the min-hash sketch of **X** we want to estimate the size of ![](http://latex.codecogs.com/gif.latex?X%20%5Ccup%20Y). Given the result on the previous section on how to estimate the size of a set, is fairly straightforward to estimate the union of two sets given the same variables, let’s see:<br/>
 
 (8) <p align="center">![Eq-8](http://latex.codecogs.com/gif.latex?JS%28X%20%5Ccup%20Y%2C%20U%29%20%3D%20%5Cfrac%7B%7CX%20%5Ccup%20Y%20%5Ccap%20U%7C%7D%7B%7CX%20%5Ccup%20Y%20%5Ccup%20U%7C%7D)</p>
@@ -180,5 +183,12 @@ We can extend this for any number of sets contained in **U**, so, if X<sub>n</su
 
 To estimate ![](http://latex.codecogs.com/gif.latex?JS%28X_1%20%5Ccup%20X_2%20%5Ccup%20...%20%5Ccup%20X_n%2C%20U%29) we can merge all min-hash sketches for X<sub>1</sub>,X<sub>2</sub>,...,X<sub>n</sub>, the resulting min-hash sketch is a list with the same size as **_min_hash(X<sub>n</sub>)_** and, for every position i in the list we have:<br/>
 
+<p align="center">![](http://latex.codecogs.com/gif.latex?min%5C_hash%28X_1%20%5Ccup%20X_2%20%5Ccup%20...%20%5Ccup%20X_n%29%5Bi%5D%20%3D%20min%28min%5C_hash%28X_1%29%5Bi%5D%2C%20min%5C_hash%28X_2%29%5Bi%5D%2C%20...%20%2C%20min%5C_hash%28X_n%29%5Bi%5D%29)</p>
+<br/>
 
+Finally, we can use the ![](http://latex.codecogs.com/gif.latex?min%5C_hash%28X_1%20%5Ccup%20X_2%20%5Ccup%20...%20%5Ccup%20X_n%29) and the same technique described on the previous section
+(fraction of elements equal to zero) to calculate ![](http://latex.codecogs.com/gif.latex?JS%28X_1%20%5Ccup%20X_2%20%5Ccup%20...%20%5Ccup%20X_n%2C%20U%29) With that and **|U|** we can estimate ![](http://latex.codecogs.com/gif.latex?%7CX_1%20%5Ccup%20X_2%20%5Ccup%20...%20%5Ccup%20X_n%7C).
 
+The implementation with the given dataset can be found at [`part_2_2_b.py`](https://github.com/AAbasinejad/SearchEngine_Analysis/blob/master/part_2_2_b.py) and the result of running the program at [`part_2_2_b_OUTPUT.csv`](https://github.com/AAbasinejad/SearchEngine_Analysis/blob/master/part_2_2_b_OUTPUT.csv)
+
+La Fine :)
