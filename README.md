@@ -186,6 +186,7 @@ We can extend this for any number of sets contained in **U**, so, if X<sub>n</su
 To estimate ![](http://latex.codecogs.com/gif.latex?JS%28X_1%20%5Ccup%20X_2%20%5Ccup%20...%20%5Ccup%20X_n%2C%20U%29) we can merge all min-hash sketches for X<sub>1</sub>,X<sub>2</sub>,...,X<sub>n</sub>, the resulting min-hash sketch is a list with the same size as **_min_hash(X<sub>n</sub>)_** and, for every position i in the list we have:<br/>
 
 ![](http://latex.codecogs.com/gif.latex min%5C_hash%28X_1%20%5Ccup%20X_2%20%5Ccup%20...%20%5Ccup%20X_n%29%5Bi%5D%20%3D%20min%28min%5C_hash%28X_1%29%5Bi%5D%2C%20min%5C_hash%28X_2%29%5Bi%5D%2C%20...%20%2C%20min%5C_hash%28X_n%29%5Bi%5D%29)
+
 <br/>
 
 Finally, we can use the ![](http://latex.codecogs.com/gif.latex?min%5C_hash%28X_1%20%5Ccup%20X_2%20%5Ccup%20...%20%5Ccup%20X_n%29) and the same technique described on the previous section
