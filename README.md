@@ -93,6 +93,7 @@ Finally, we are left with the precision at 4 scores. This metric seems suitable 
 In this part we deal with three data mining problems: (1) near-duplicate detection; (2) the set-estimation problem and (3) the unions-size estimation problem.<br/>
 
 #### Part 2-1 <br/>
+
 In [this section](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/part2_1.py) we find, in an approximated way, all near-duplicate documents in a dataset of lyrics of songs. For this, two documents has been considered as near-duplicates if the Jaccard similarity between their associated set of shingles is ≥ 0.85.<br/>
 Before running the program we parsed the data and removed documents where the lyrics were empty, from this, out of 87041 song lyrics, we got a total of 86216 that were considered for near-duplicate detection.<br/>
 
@@ -136,6 +137,7 @@ The code to generate the shingles and min-hashes from the set of documents can b
 and the code to get the false positives and other statistics can be found at [`part2_1stats.py`](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/part2_1stats.py). <br/>
 
 #### Part 2-2 <br/>
+
 In this section we deal with the last two problems: set-size estimation and unions-size estimation. <br/>
 
 **Set Size Estimation** <br/>
@@ -183,7 +185,7 @@ We can extend this for any number of sets contained in **U**, so, if X<sub>n</su
 
 To estimate ![](http://latex.codecogs.com/gif.latex?JS%28X_1%20%5Ccup%20X_2%20%5Ccup%20...%20%5Ccup%20X_n%2C%20U%29) we can merge all min-hash sketches for X<sub>1</sub>,X<sub>2</sub>,...,X<sub>n</sub>, the resulting min-hash sketch is a list with the same size as **_min_hash(X<sub>n</sub>)_** and, for every position i in the list we have:<br/>
 
-<p align="center">![](http://latex.codecogs.com/gif.latex?min%5C_hash%28X_1%20%5Ccup%20X_2%20%5Ccup%20...%20%5Ccup%20X_n%29%5Bi%5D%20%3D%20min%28min%5C_hash%28X_1%29%5Bi%5D%2C%20min%5C_hash%28X_2%29%5Bi%5D%2C%20...%20%2C%20min%5C_hash%28X_n%29%5Bi%5D%29)</p>
+![](http://latex.codecogs.com/gif.latexmin%5C_hash%28X_1%20%5Ccup%20X_2%20%5Ccup%20...%20%5Ccup%20X_n%29%5Bi%5D%20%3D%20min%28min%5C_hash%28X_1%29%5Bi%5D%2C%20min%5C_hash%28X_2%29%5Bi%5D%2C%20...%20%2C%20min%5C_hash%28X_n%29%5Bi%5D%29)
 <br/>
 
 Finally, we can use the ![](http://latex.codecogs.com/gif.latex?min%5C_hash%28X_1%20%5Ccup%20X_2%20%5Ccup%20...%20%5Ccup%20X_n%29) and the same technique described on the previous section
