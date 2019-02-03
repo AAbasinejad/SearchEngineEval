@@ -158,9 +158,27 @@ For our example **|U|** is given, then if we can calculate (or estimate) the Jac
 
 Another element that is given to us is the min-hash sketch of set **X** (we call it **min_hash(X)**). We know that for two sets, an estimation of the Jaccard similarity is given by the fraction of permutations where the min-hash values agree, so we can use this fact to estimate the Jaccard similarity between **X** and **U**. <br/>
 
-Whilst **min_hash(X)** is give, the **min_hash(U)** is not, but, we can make the following assumption: on the list that represents **min_hash(X)** each position represents a permutation, and the value in position i represents the position of an element of the set **X** according to permutation i(a practical example can be seen [here](http://infolab.stanford.edu/~ullman/mining/2009/similarity1.pdf#page=25)). Since in **U** there will always be an element on every position (because is the universe set) the **min_hash(U)** can be seen as a list where all elements are **0**, because no matter the permutation, **U** will always have an element in the first position of the permuted order. Therefore, is easy to see that the estimated Jaccard similarity between **X** and **U** is the fraction of elements equal to zero in **min_hash(X)**, with that and equation 7 we can estimate **|X|**. <br/>
+Whilst **min_hash(X)** is given, the **min_hash(U)** is not, but, we can make the following assumption: on the list that represents **min_hash(X)** each position represents a permutation, and the value in position i represents the position of an element of the set **X** according to permutation i(a practical example can be seen [here](http://infolab.stanford.edu/~ullman/mining/2009/similarity1.pdf#page=25)). Since in **U** there will always be an element on every position (because is the universe set) the **min_hash(U)** can be seen as a list where all elements are **0**, because no matter the permutation, **U** will always have an element in the first position of the permuted order. Therefore, is easy to see that the estimated Jaccard similarity between **X** and **U** is the fraction of elements equal to zero in **min_hash(X)**, with that and equation 7 we can estimate **|X|**. <br/>
 
 The implementation with the given dataset can be found at [`part_2_2_a.py`](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/part_2_2_a.py) and the result of running the program at [`part_2_2_a_OUTPUT.csv`](https://github.com/AAbasinejad/SearchEngineV2.0/blob/master/part_2_2_a_OUTPUT.csv). <br/>
 
 **Union Size Estimation** <br/>
-...
+In the previous section we showed that given the size of a universe set **U**, and the min-hash sketch of a set **X** we can estimate the size of **X**. Now, we add a new set **Y**, and, given the min-hash sketch of **Y**, the size of the universe set **U** and the min-hash sketch of **X** we want to estimate the size of ![](http://latex.codecogs.com/gif.latex?X%20%5Ccup%20Y). Given the result on the previous section on how to estimate the size of a set, is fairly straightforward to estimate the union of two sets given the same variables, let’s see:<br/>
+
+(8) <p align="center">![Eq-8](http://latex.codecogs.com/gif.latex?JS%28X%20%5Ccup%20Y%2C%20U%29%20%3D%20%5Cfrac%7B%7CX%20%5Ccup%20Y%20%5Ccap%20U%7C%7D%7B%7CX%20%5Ccup%20Y%20%5Ccup%20U%7C%7D)</p>
+</br>
+
+Again, Since, ![](http://latex.codecogs.com/gif.latex?X%20%5Csubset%20U) and ![](http://latex.codecogs.com/gif.latex?Y%20%5Csubset%20U) we have that ![](http://latex.codecogs.com/gif.latex?X%20%5Ccup%20Y%20%5Ccap%20U%20%3D%20X%20%5Ccup%20Y) and ![](http://latex.codecogs.com/gif.latex?X%20%5Ccup%20Y%20%5Ccup%20U%20%3D%20U), then:<br/>
+
+(9) <p align="center">![Eq-9](http://latex.codecogs.com/gif.latex?JS%28X%20%5Ccup%20Y%2C%20U%29%20%3D%20%5Cfrac%7B%7CX%20%5Ccup%20Y%7C%7D%7B%7CU%7C%7D%20%5CRightarrow%20%7CX%20%5Ccup%20U%7C%20%3D%20%7CU%7C%20%5Ctimes%20JS%28X%20%5Ccup%20Y%2C%20U%29)</p>
+<br/>
+
+We can extend this for any number of sets contained in **U**, so, if X<sub>n</sub> is a list of **n** sets contained in **U** we have:
+
+(10) <p align="center">![Eq-10](http://latex.codecogs.com/gif.latex?%7CX_1%20%5Ccup%20X_2%20%5Ccup%20...%5Ccup%20X_n%7C%20%3D%20%7CU%7C%20*%20JS%28X_1%20%5Ccup%20X_2%20%5Ccup%20...%20%5Ccup%20X_n%2C%20U%29)</p>
+<br/>
+
+To estimate ![](http://latex.codecogs.com/gif.latex?JS%28X_1%20%5Ccup%20X_2%20%5Ccup%20...%20%5Ccup%20X_n%2C%20U%29) we can merge all min-hash sketches for X<sub>1</sub>,X<sub>2</sub>,...,X<sub>n</sub>, the resulting min-hash sketch is a list with the same size as **_min_hash(X<sub>n</sub>)_** and, for every position i in the list we have:<br/>
+
+
+
